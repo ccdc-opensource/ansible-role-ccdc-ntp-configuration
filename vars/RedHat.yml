@@ -1,0 +1,5 @@
+---
+ntp_daemon: ntpd
+ntp_server_package: ntp
+ntp_tzdata_package: tzdata
+ntp_driftfile: /var/lib/ntp/drift

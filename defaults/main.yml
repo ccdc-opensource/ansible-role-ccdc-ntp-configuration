@@ -1,0 +1,4 @@
+---
+ccdc_ntp_servers:
+  - ntp0.ccdc.cam.ac.uk
+  - 127.127.1.0

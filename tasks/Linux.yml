@@ -1,0 +1,25 @@
+---
+- name: Ensure timezone packages are installed.
+  package: name="{{ ntp_tzdata_package }}" state=present
+  become: yes
+
+- name: Set timezone to Europe/London
+  timezone:
+    name: "Europe/London"
+  become: yes
+
+- name: Generate ntp.conf file
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+    mode: u=rw,g=r,o=r
+  notify: restart ntp
+  become: yes
+
+- name: Ensure NTP package is installed.
+  package: name={{ ntp_server_package }} state=present
+  become: yes
+
+- name: Ensure ntp service is running
+  service: name="{{ ntp_daemon }}" state=started enabled=true
+  become: yes
