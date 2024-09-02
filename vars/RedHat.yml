@@ -2,4 +2,4 @@
 ntp_daemon: chronyd
 ntp_server_package: chrony
 ntp_tzdata_package: tzdata
-ntp_driftfile: /var/lib/ntp/drift
+ntp_driftfile: /var/lib/chrony/drift
