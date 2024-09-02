@@ -1,0 +1,32 @@
+---
+- name: Ensure timezone packages are installed.
+  ansible.builtin.package:
+    name: "{{ ntp_tzdata_package }}"
+    state: present
+  become: true
+
+- name: Set timezone to Europe/London
+  community.general.timezone:
+    name: "Europe/London"
+  become: true
+
+- name: Generate ntp.conf file
+  ansible.builtin.template:
+    src: chrony.conf.j2
+    dest: /etc/chrony.conf
+    mode: u=rw,g=r,o=r
+  notify: Restart ntp service
+  become: true
+
+- name: Ensure NTP package is installed.
+  ansible.builtin.package:
+    name: "{{ ntp_server_package }}"
+    state: present
+  become: true
+
+- name: Ensure ntp service is running
+  ansible.builtin.service:
+    name: "{{ ntp_daemon }}"
+    state: started
+    enabled: true
+  become: true
