@@ -8,6 +8,7 @@
   ansible.builtin.command: /usr/sbin/systemsetup -setusingnetworktime on
   changed_when: false
   become: true
+  ignore_errors: true
 
 - name: Set network time server (MacOS)
   ansible.builtin.command: /usr/sbin/systemsetup -setnetworktimeserver "{{ ccdc_ntp_servers[0] }}"
