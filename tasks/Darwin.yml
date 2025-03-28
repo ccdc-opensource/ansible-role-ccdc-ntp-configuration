@@ -3,6 +3,7 @@
   community.general.timezone:
     name: "Europe/London"
   become: true
+  ignore_errors: true
 
 - name: Set network time use (MacOS)
   ansible.builtin.command: /usr/sbin/systemsetup -setusingnetworktime on
