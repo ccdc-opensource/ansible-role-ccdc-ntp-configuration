@@ -1,6 +1,6 @@
 ---
 - name: Set timezone to Europe/London (Windows)
-  community.windows.win_timezone:
+  ansible.windows.win_timezone:
     timezone: GMT Standard Time
 
 - name: Start NTP service (Windows)
