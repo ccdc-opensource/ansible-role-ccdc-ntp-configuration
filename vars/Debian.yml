@@ -1,5 +1,5 @@
 ---
-ntp_daemon: ntp
-ntp_server_package: ntp
-ntp_tzdata_package: tzdata
-ntp_driftfile: /var/lib/ntp/drift
+chrony_daemon: chrony
+chrony_server_package: chrony
+chrony_tzdata_package: tzdata
+chrony_driftfile: /var/lib/chrony/chrony.drift
