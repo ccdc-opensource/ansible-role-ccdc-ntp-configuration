@@ -1,7 +1,7 @@
 ---
 - name: Ensure timezone packages are installed.
   ansible.builtin.package:
-    name: "{{ ntp_tzdata_package }}"
+    name: "{{ chrony_tzdata_package }}"
     state: present
   become: true
 
@@ -10,23 +10,23 @@
     name: "Europe/London"
   become: true
 
-- name: Generate ntp.conf file
+- name: Generate chrony.conf file
   ansible.builtin.template:
-    src: ntp.conf.j2
-    dest: /etc/ntp.conf
+    src: chrony.conf.j2
+    dest: /etc/chrony/chrony.conf
     mode: u=rw,g=r,o=r
-  notify: Restart ntp service
+  notify: Restart chrony service
   become: true
 
-- name: Ensure NTP package is installed.
+- name: Ensure chrony package is installed.
   ansible.builtin.package:
-    name: "{{ ntp_server_package }}"
+    name: "{{ chrony_server_package }}"
     state: present
   become: true
 
-- name: Ensure ntp service is running
+- name: Ensure chrony service is running
   ansible.builtin.service:
-    name: "{{ ntp_daemon }}"
+    name: "{{ chrony_daemon }}"
     state: started
     enabled: true
   become: true
