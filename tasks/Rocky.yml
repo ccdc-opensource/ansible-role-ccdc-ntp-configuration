@@ -1,7 +1,7 @@
 ---
 - name: Ensure timezone packages are installed.
   ansible.builtin.package:
-    name: "{{ ntp_tzdata_package }}"
+    name: "{{ chrony_tzdata_package }}"
     state: present
   become: true
 
@@ -20,13 +20,13 @@
 
 - name: Ensure NTP package is installed.
   ansible.builtin.package:
-    name: "{{ ntp_server_package }}"
+    name: "{{ chrony_server_package }}"
     state: present
   become: true
 
 - name: Ensure ntp service is running
   ansible.builtin.service:
-    name: "{{ ntp_daemon }}"
+    name: "{{ chrony_daemon }}"
     state: started
     enabled: true
   become: true
