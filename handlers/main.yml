@@ -4,9 +4,11 @@
     name: "{{ ntp_daemon }}"
     state: restarted
   become: true
+  when: ntp_daemon is defined
 
 - name: Restart chrony service
   ansible.builtin.service:
     name: "{{ chrony_daemon }}"
     state: restarted
   become: true
+  when: chrony_daemon is defined

@@ -13,7 +13,7 @@
 - name: Generate chrony.conf file
   ansible.builtin.template:
     src: chrony.conf.j2
-    dest: /etc/chrony/chrony.conf
+    dest: "{{ chrony_config_file }}"
     mode: u=rw,g=r,o=r
   notify: Restart chrony service
   become: true
