@@ -3,3 +3,4 @@ chrony_daemon: chrony
 chrony_server_package: chrony
 chrony_tzdata_package: tzdata
 chrony_driftfile: /var/lib/chrony/chrony.drift
+chrony_config_file: /etc/chrony/chrony.conf
