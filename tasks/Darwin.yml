@@ -17,3 +17,4 @@
 
 - name: Restart MacOS after NTP changes
   ansible.builtin.reboot:
+  become: true
