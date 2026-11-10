@@ -17,4 +17,5 @@
 
 - name: Restart MacOS after NTP changes
   ansible.builtin.reboot:
+    reboot_timeout: 800
   become: true
